@@ -51,6 +51,7 @@ if ($method === "DELETE") {
         if ($user["id"] == $id) {
             $found = true;
             array_splice($users, $index, 1);
+
             break;
         }
     }
