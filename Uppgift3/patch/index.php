@@ -1,10 +1,10 @@
 <?php 
 
-// require_once "functions.php";
+require_once "functions.php";
 
 // Ladda in vår JSON data från vår fil
-$users = loadJson("../users.json");
-// $companies = loadJson("../companies.json");
+$users = loadJson("users.json");
+$companies = loadJson("companies.json");
 
 // Vilken HTTP metod vi tog emot
 $method = $_SERVER["REQUEST_METHOD"];
@@ -26,15 +26,15 @@ if ($method === "PATCH") {
     }
 
     // Kontrollera att first_name och/eller last_name skickades med
-    if (!isset($requestData["first_name"]) && !isset($requestData["last_name"])) {
-        send(
-            [
-                "code" => 4,
-                "message" => "Bad request, missing `first_name` or `last_name`"
-            ],
-            400
-        );
-    }
+    // if (!isset($requestData["first_name"]) && !isset($requestData["last_name"])) {
+    //     send(
+    //         [
+    //             "code" => 4,
+    //             "message" => "Bad request, missing `first_name` or `last_name`"
+    //         ],
+    //         400
+    //     );
+    // }
 
     if (isset($requestData["first_name"])) {
         $firstName = $requestData["first_name"];
@@ -57,6 +57,23 @@ if ($method === "PATCH") {
     $found = false;
     $foundUser = null;
 
+    function test() {
+        foreach ($users as $index => $user) {
+
+        foreach ($companies as $index => $company) {
+            if ($user["company"] == $company["id"]) {
+
+                 $company["employees"] = $requestData["company"];
+             
+             }
+
+            $companies[$index] = $company;
+            $foundUser = $company;
+            break;
+
+         }}
+    }
+
     foreach ($users as $index => $user) {
         if ($user["id"] == $id) {
             $found = true;
@@ -69,7 +86,24 @@ if ($method === "PATCH") {
                 $user["last_name"] = $requestData["last_name"];
             }
 
+            if (isset($requestData["gender"])) {
+                $user["gender"] = $requestData["gender"];
+            }
+
+            if (isset($requestData["job_department"])) {
+                $user["job_department"] = $requestData["job_department"];
+            }
+
+            if (isset($requestData["company"])) {
+                $user["company"] = $requestData["company"];
+
+                
+                test();
+                
+            }
+
             // Uppdatera vår array
+            
             $users[$index] = $user;
             $foundUser = $user;
             
@@ -88,6 +122,7 @@ if ($method === "PATCH") {
     }
 
     saveJson("users.json", $users);
+    saveJson("companies.json", $companies);
     send($foundUser);
 }
 
