@@ -19,9 +19,24 @@ $data = file_get_contents("php://input");
 $requestData = json_decode($data, true);
 
 if ($requestMethod === "POST") {
-    if (!isset($requestData["first_name"], $requestData["last_name"], $requestData["gender"], $requestData["job_department"], $requestData["company"])) {
+    // skapa variabler
+    $id = $requestData["id"];
+    $firstName = $requestData["first_name"];
+    $lastName = $requestData["last_name"];
+    $gender = $requestData["gender"];
+    $jobDepartment = $requestData["job_department"];
+    $company = $requestData["company"];
+
+    if (!isset($firstName, $lastName, $gender, $jobDepartment, $company)) {
         send(
-            ["message" => "Missing keys."],
+            ["message" => "Bad request. There are missing keys."],
+            400
+        );
+    }
+
+    if (isset($id)) {
+        send(
+            ["message" => "The user 'id' is not allowed."],
             400
         );
     }
