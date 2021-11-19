@@ -52,6 +52,16 @@ if ($method === "DELETE") {
             $found = true;
             array_splice($users, $index, 1);
 
+            foreach ($companies as $index => $company) {
+                if($company["employees"] == $id){
+                    $found = true;
+                  array_splice($companies, $index, 1);
+                  $companyjson = "companies.json";
+   $userjson = $companyjson;
+                }
+
+            }
+
             break;
         }
     }
@@ -68,11 +78,12 @@ if ($method === "DELETE") {
     }
 
     // Uppdaterar filen
+ //   $companyjson = "companies.json";
     $userjson = "users.json";
-    $companyjson = "companies.json";
    // Avmarkera för att testa på companies istället
-   // $userjson = $companyjson;
+   //$userjson = $companyjson;
     saveJson($userjson, $users);
+   // saveJson($companyjson, $users);
     send(["id" => $id]);
 }
 ?>

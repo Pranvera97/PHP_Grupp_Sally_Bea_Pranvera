@@ -12,12 +12,12 @@
         ]
     },
     {
-      "id": 4,
-      "first_name": "Minnnie",
-      "last_name": "Rudsdale",
-      "gender": "Bigender",
-      "job_department": "Human Resources",
-      "company": 2
+        "id": 2,
+        "company_name": "Fliptune",
+        "country": "China",
+        "address": "567 Kropf Lane",
+        "phone_number": "788-296-8681",
+        "employees": 4
     },
     {
         "id": 3,
