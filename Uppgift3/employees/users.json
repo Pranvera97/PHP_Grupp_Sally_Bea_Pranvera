@@ -23,6 +23,14 @@
         "job_department": "Training",
         "company": 1
     },
+        {
+        "id": 4,
+        "first_name": "Minnnie",
+        "last_name": "Rudsdale",
+        "gender": "Bigender",
+        "job_department": "Human Resources",
+        "company": 2
+    },
     {
         "id": 5,
         "first_name": "Faustina",
