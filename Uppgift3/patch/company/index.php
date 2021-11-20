@@ -3,8 +3,7 @@
 require_once "functions.php";
 
 // Ladda in vår JSON data från vår fil
-$users = loadJson("users.json");
-$companies = loadJson("companies.json");
+$companies = loadJson("../companies.json");
 
 // Vilken HTTP metod vi tog emot
 $method = $_SERVER["REQUEST_METHOD"];
@@ -55,61 +54,40 @@ if ($method === "PATCH") {
 
     $id = $requestData["id"];
     $found = false;
-    $foundUser = null;
+    $foundCompany = null;
 
-    function test() {
-        foreach ($users as $index => $user) {
 
-        foreach ($companies as $index => $company) {
-            if ($user["company"] == $company["id"]) {
-
-                 $company["employees"] = $requestData["company"];
-             
-             }
-
-            $companies[$index] = $company;
-            $foundUser = $company;
-            break;
-
-         }}
-    }
-
-    foreach ($users as $index => $user) {
-        if ($user["id"] == $id) {
+    foreach ($companies as $index => $company) {
+        if ($company["id"] == $id) {
             $found = true;
 
-            if (isset($requestData["first_name"])) {
-                $user["first_name"] = $requestData["first_name"];
+            if (isset($requestData["company_name"])) {
+                $company["company_name"] = $requestData["company_name"];
             }
 
-            if (isset($requestData["last_name"])) {
-                $user["last_name"] = $requestData["last_name"];
+            if (isset($requestData["country"])) {
+                $company["country"] = $requestData["country"];
             }
 
-            if (isset($requestData["gender"])) {
-                $user["gender"] = $requestData["gender"];
+            if (isset($requestData["address"])) {
+                $company["address"] = $requestData["address"];
             }
 
-            if (isset($requestData["job_department"])) {
-                $user["job_department"] = $requestData["job_department"];
+            if (isset($requestData["phone_number"])) {
+                $company["phone_number"] = $requestData["phone_number"];
             }
 
-            if (isset($requestData["company"])) {
-                $user["company"] = $requestData["company"];
-
-                
-                test();
-                
+            if (isset($requestData["employees"])) {
+                $company["employees"] = $requestData["employees"];
             }
 
-            // Uppdatera vår array
-            
-            $users[$index] = $user;
-            $foundUser = $user;
+            $companies[$index] = $company;
+            $foundCompany = $company;
             
             break;
         }
     }
+
 
     if ($found === false) {
         send(
@@ -121,9 +99,11 @@ if ($method === "PATCH") {
         );
     }
 
-    saveJson("users.json", $users);
-    saveJson("companies.json", $companies);
+    saveJson("../users.json", $users);
     send($foundUser);
+
+    saveJson("../companies.json", $companies);
+    send($foundCompany);
 }
 
 
