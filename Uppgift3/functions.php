@@ -21,11 +21,5 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
-function timeLog($message, $level = "[INFO]")
-{
-    $date = date('[ m/d/Y h:i:s ]', time());
-    $helaMeddelandet = $date . $level . $message;
-    file_put_contents("historik.log", $helaMeddelandet, FILE_APPEND);
-}
 
 ?>
