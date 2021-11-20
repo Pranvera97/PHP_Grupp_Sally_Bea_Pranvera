@@ -1,7 +1,6 @@
 <?php
 
-include_once "functions.php";
-
+include_once "../functions.php";
 /*
 $companyData = loadJson("companies.json"); 
 foreach($companyData as $index => $company) {
@@ -11,7 +10,6 @@ foreach($companyData as $index => $company) {
     var_dump($array);
     echo "</pre>";    
 } */
-
 // hämta metoden i servern.
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 // hämtar typ av innehåll från servern.
@@ -36,7 +34,7 @@ if ($requestMethod === "POST") {
     $lastName = $requestData["last_name"];
     $gender = $requestData["gender"];
     $jobDepartment = $requestData["job_department"];
-    $companyID = $requestData["company"];
+    $companyID = $requestData["id_of_company"];
 
     // kollar om dessa nycklar är med.
     if (!isset($firstName, $lastName, $gender, $jobDepartment, $companyID)) {
@@ -54,17 +52,17 @@ if ($requestMethod === "POST") {
         );
     }
 
-    // kollar om id:et är rätt.
-    if (!$companyID > 0 && !$companyID <= 10) {
+    // kollar om id:et är rätt. Nu funkar inte den med 30 bruuuuuh
+    if (!$companyID > 0 && !$companyID >= 30) {
         send(
-            ["The 'id' for company can only be between 1-10."],
+            ["The 'id' for company can only be between 1-30."],
             400
         );
     }
 
     // dessa är associative array av datan från filerna.
     $userData = loadJson("users.json"); 
-    $companyData = loadJson("companies.json"); 
+    //$companyData = loadJson("companies.json"); 
     
     $highestID = 0;
 
@@ -81,24 +79,24 @@ if ($requestMethod === "POST") {
         "last_name" => $lastName,
         "gender" => $gender,
         "job_department" => $jobDepartment,
-        "company" => $companyID
+        "id_of_company" => $companyID
     ];
     
     // lägga till användaren till users.json
     array_push($userData, $newUser);
     
     // lägga till användaren under företagets 'emplyoees'.
-
+    /*
     foreach ($companyData as $index => $company) {
         if ($companyID == $company["id"]) {
             $array = $company["employees"];
             array_push($array, $newUser["id"]);
         }
-    }
+    } */
 
     // spara vårt innehåll
     saveJson("users.json", $userData);
-    saveJson("companies.json", $companyData);
+    //saveJson("companies.json", $companyData);
     send($newUser, 201);
 } 
 ?>
