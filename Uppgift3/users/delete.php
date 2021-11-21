@@ -5,10 +5,6 @@ error_reporting(-1);
 // Ladda in vår JSON data från vår fil, i detta fallet är det $users
 $users = loadJson("users.json");
 
-$companies = loadJson("../companies/companies.json");
-//Avmarkera om du vill testa på companies istället
-// $users = $companies;
-
 // Vilken HTTP metod vi tog emot
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -51,31 +47,9 @@ if ($method === "DELETE") {
     if ($user["id"] == $id) {
         $found = true;
         array_splice($users, $index, 1);
-
-        foreach ($companies as $index => $company) {
-            if(array_search($id, array_column($companies, 'employees')) !== FALSE) {
-                // unset($companies[array_search($id, $companies)]);
-                
-                  } else {
-                    send(
-                        [
-                            "code" => 44,
-                            "message" => "howdyyyyyy"
-                        ],
-                        400
-                    );
-                }
-    
-        
-
-
-          
-        }
-
         break;
     }
 }
-
 
     // Om id inte existerar
     if ($found === false) {
@@ -89,12 +63,11 @@ if ($method === "DELETE") {
     }
 
     // Uppdaterar filen
-   $companyjson = "../companies/companies.json";
     $userjson = "users.json";
-   // Avmarkera för att testa på companies istället
-   //$userjson = $companyjson;
     saveJson($userjson, $users);
-   saveJson($companyjson, $companies);
-    send(["id" => $companies]);
+    send(
+        ["You have deleted the following user" => $user],
+        200
+    );
 }
 ?>
