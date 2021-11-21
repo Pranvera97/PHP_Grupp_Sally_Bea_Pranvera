@@ -208,12 +208,5 @@
         "country": "Indonesia",
         "address": "0 Golf View Hill",
         "phone_number": "580-866-6231"
-    },
-    {
-        "id": 31,
-        "company_name": "Twitter",
-        "country": "United States",
-        "address": "The hills of hollywood",
-        "phone_number": "5642834735"
     }
 ]

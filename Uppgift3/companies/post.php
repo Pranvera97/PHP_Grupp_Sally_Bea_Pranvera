@@ -7,7 +7,7 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 // om det inte är i JSON, ge felmeddelande.
 if ($contentType !== "application/json") {
     send(
-        ["message" => "Bad request."],
+        ["message" => "Bad request. You're missing 'Content-Type'."],
         400
     );
 }
@@ -15,7 +15,7 @@ if ($contentType !== "application/json") {
 // om metoden inte är POST, ge felmeddelande.
 if ($requestMethod !== "POST") {
     send(
-        ["message" => "Method not allowed."],
+        ["message" => "Method not allowed. You can only use 'POST'."],
         405
     );
 }
@@ -60,9 +60,9 @@ if ($requestMethod === "POST") {
         );
     }
 
-    if (strlen($country) > 56) {
+    if (strlen($country) > 25) {
         send(
-            ["Message" => "The country name only allows the maximum of 56 letters."],
+            ["Message" => "The country name only allows the maximum of 25 letters."],
             400
         );
     }
