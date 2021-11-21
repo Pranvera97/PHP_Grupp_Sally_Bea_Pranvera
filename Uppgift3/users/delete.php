@@ -51,28 +51,31 @@ if ($method === "DELETE") {
     if ($user["id"] == $id) {
         $found = true;
         array_splice($users, $index, 1);
-
+        
         foreach ($companies as $index => $company) {
-            if(array_search($id, array_column($companies, 'employees')) !== FALSE) {
-                // unset($companies[array_search($id, $companies)]);
-                
-                  } else {
+                if ($company["id_of_employees"] == $user["id"]) {
                     send(
                         [
-                            "code" => 44,
-                            "message" => "howdyyyyyy"
+                            "code" => 14,
+                            "message" => "howderggreyyyyyy"
                         ],
-                        400
+                        200
                     );
                 }
-    
-        
+                else {
+                send(
+                    [
+                        "code" => 44,
+                        "message" => "howdyyyyyy"
+                    ],
+                    400
+                );
+            }
+                 // unset($companies[array_search($id, $companies)]);
+                 //unset($companies[$id]);
 
-
-          
         }
  
-
         break;
     }
 }
@@ -96,6 +99,7 @@ if ($method === "DELETE") {
    //$userjson = $companyjson;
     saveJson($userjson, $users);
    saveJson($companyjson, $companies);
-    send(["id" => $user]);
+    //send(["id" => $user]);
+    send ($companies);
 }
 ?>
