@@ -55,12 +55,18 @@ if ($method === "DELETE") {
         foreach ($companies as $index => $company) {
             if(array_search($id, array_column($companies, 'employees')) !== FALSE) {
                 // unset($companies[array_search($id, $companies)]);
-                
+                send(
+                    [
+                        "code" => 44,
+                        "message" => "hihihihiy"
+                    ],
+                    400
+                );
                   } else {
                     send(
                         [
                             "code" => 44,
-                            "message" => "howdyyyyyy"
+                            "message" => "hohoho"
                         ],
                         400
                     );
