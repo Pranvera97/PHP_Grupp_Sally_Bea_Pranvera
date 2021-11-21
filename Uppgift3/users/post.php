@@ -1,6 +1,5 @@
 <?php
-
-include_once "../functions.php";
+require_once "../functions.php";
 /*
 $companyData = loadJson("companies.json"); 
 foreach($companyData as $index => $company) {
@@ -53,7 +52,7 @@ if ($requestMethod === "POST") {
     }
 
     // kollar om id:et är rätt. Nu funkar inte den med 30 bruuuuuh
-    if (!$companyID > 0 && !$companyID >= 30) {
+    if (!$companyID > 0 && !$companyID <= 30) {
         send(
             ["The 'id' for company can only be between 1-30."],
             400

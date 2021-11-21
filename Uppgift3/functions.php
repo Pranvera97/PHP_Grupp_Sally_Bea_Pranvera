@@ -1,4 +1,5 @@
 <?php
+// error_reporting(-1);
 
 // Skicka ut JSON till en anvĂ¤ndare
 function send($data, $statusCode = 200) {
