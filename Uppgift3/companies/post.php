@@ -31,6 +31,7 @@ if ($requestMethod === "POST") {
     $address = $requestData["address"];
     $number = $requestData["phone_number"];
     
+    // olika ändpunkter om det inte skulle fungera.
     if(!isset($companyName, $country, $address, $number)) {
         send(
             ["message" => "Bad request. There are missing keys."],
@@ -47,7 +48,7 @@ if ($requestMethod === "POST") {
 
     if (strlen($companyName) < 3) {
         send(
-            ["Message" => "The company name needs to include 3 or more characters."],
+            ["Message" => "The company name needs to include 3 or more letters."],
             400
         );
     }
@@ -59,9 +60,53 @@ if ($requestMethod === "POST") {
         );
     }
 
+    if (strlen($country) > 56) {
+        send(
+            ["Message" => "The country name only allows the maximum of 56 letters."],
+            400
+        );
+    }
+
+    if (!is_numeric($number)) {
+        send(
+            ["message" => "The phone number must only consist of numbers."],
+            400
+        );
+    }
+
+    if (strlen($number) != 10) {
+        send(
+            ["message" => "The phone number needs to have 10 digits."],
+            400
+        );
+    }
+
+    // när det fungerar.
     $companyData = loadJson("companies.json");
 
+    $highestID = 0;
 
+    foreach ($companyData as $index => $companyID) {
+        if ($companyID["id"] > $highestID) {
+            $highestID = $companyID["id"];
+        }
+    }
+
+    // nytt företag
+    $newCompany = [
+        "id" => $highestID + 1,
+        "company_name" => $companyName,
+        "country" => $country,
+        "address" => $address,
+        "phone_number" => $number
+    ];
+
+    // lägga till i companies.json
+    array_push($companyData, $newCompany);
+
+    // spara det nya innehållet
+    saveJson("companies.json", $companyData);
+    send($newCompany, 201);
 }
 
 ?>

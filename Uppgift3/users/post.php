@@ -83,15 +83,6 @@ if ($requestMethod === "POST") {
     
     // lägga till användaren till users.json
     array_push($userData, $newUser);
-    
-    // lägga till användaren under företagets 'emplyoees'.
-    /*
-    foreach ($companyData as $index => $company) {
-        if ($companyID == $company["id"]) {
-            $array = $company["employees"];
-            array_push($array, $newUser["id"]);
-        }
-    } */
 
     // spara vårt innehåll
     saveJson("users.json", $userData);
