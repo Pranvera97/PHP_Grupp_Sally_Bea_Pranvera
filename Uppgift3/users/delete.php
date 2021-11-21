@@ -71,6 +71,7 @@ if ($method === "DELETE") {
 
           
         }
+ 
 
         break;
     }
@@ -95,6 +96,6 @@ if ($method === "DELETE") {
    //$userjson = $companyjson;
     saveJson($userjson, $users);
    saveJson($companyjson, $companies);
-    send(["id" => $companies]);
+    send(["id" => $user]);
 }
 ?>
