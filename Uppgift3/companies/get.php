@@ -5,12 +5,6 @@ $employees = loadJson("../users/users.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-//Kvar att göra: 
-
-// 1. Kunna begränsa antal entiteter vi hämtar med parametern limit=n. Denna parametern ska kunna kombineras med andra parametrar. 
-
-// 2. Kunna inkludera relaterade entiteter med parametern include=true, t.ex. om jag haft en hund i form av { name: "Arya", owner: 1 } (där 1 är ett ID) - med denna parametern skulle vi då inkludera relationen så här { name: "Arya", owner: { name: "Sebbe" }}. Denna  av 24
-// Databasbaserad publiceringHT21parameter ska kunna kombineras med andra parametrar. Det är ok om detta bara fungerar för er ena entitet.
 
 if ($requestMethod != "GET") {
     send(
@@ -88,6 +82,8 @@ if ($requestMethod == "GET") {
         send($limitedCompanies);
     }
 
+    
+} else {
     //Get all companies
     send($companies);
 }
