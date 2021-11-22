@@ -23,7 +23,7 @@ if ($contentType !== "application/json") {
 }
 
 // Om det inte är DELETE
-if ($requestMethod != "DELETE") {
+if ($method != "DELETE") {
     send(
         ["message" => "Method not allowed. Only 'DELETE' works."],
         405
