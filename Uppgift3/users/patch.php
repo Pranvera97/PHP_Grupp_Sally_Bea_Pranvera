@@ -115,20 +115,23 @@ if ($method === "PATCH") {
                 $user["job_department"] = $requestData["job_department"];
             }
 
-            //FUNKAR EJ
             if (isset($requestData["id_of_company"])) {
-                $user["id_of_company"] = $requestData["id_of_company"];
 
-                foreach ($companies as $index => $company) {
-                    if ($id == $company["id"]) {
-                        array_push($company["id_of_employees"], $user["id"]);
-
-                    }
-
-                    $companies[$index] = $company;
-                    $foundCompany = $company;
-                    break;
+                //om id_of_company är = 0 tecken
+                if (strlen($requestData["id_of_company"]) == 0) {
+                    send([
+                        "code" => 401,
+                        "message" => "Bad request, invalid format",
+                        "errors" => [
+                                [
+                                    "field" => "id_of_company",
+                                    "message" => "`id_of_company` has to be more then 0 characters"
+                                ]
+                        ]
+                    ]); 
                 }
+
+                $user["id_of_company"] = $requestData["id_of_company"];
             }
 
             // Uppdatera vår array

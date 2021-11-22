@@ -109,13 +109,6 @@ if ($method === "PATCH") {
                 $company["phone_number"] = $requestData["phone_number"];
             }
 
-            //FUNKAR EJ
-            if (isset($requestData["id_of_employees"])) {
-                // $company["id_of_employees"] = $requestData["id_of_employees"];
-
-                // array_push($company["id_of_employees"], $requestData["id_of_employees"]);
-            }
-
             $companies[$index] = $company;
             $foundCompany = $company;
             
