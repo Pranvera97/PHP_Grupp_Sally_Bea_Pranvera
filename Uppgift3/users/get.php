@@ -1,8 +1,7 @@
-
-
 <?php
 require_once "../functions.php";
 $users = loadJson("users.json");
+$companies = loadJson("../companies/companies.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
@@ -51,6 +50,40 @@ if ($requestMethod == "GET") {
             if ($user["id"] == $_GET["id"]) {
                 send($users[$key]);
             }
+        }
+    }
+
+    //Får fram personens företag beroende på vilket id som anges i include URL
+    if (isset($_GET["include"])) {
+        $include = $_GET["include"];
+        foreach ($users as $user) {
+            if($include == $user["id_of_company"]){
+                $userCompany = $user["id_of_company"];
+                $found = false;
+
+                //loopar igenom företag och jämför angett id för att få fram rätt företag
+                foreach($companies as $company) {
+
+                    if($company["id"] == $userCompany) {  
+                      $found = true;
+                      //Byter ut siffra til namnet på företaget
+                      $user["id_of_company"] = $company["company_name"];
+                        
+                        send([
+                            $user
+                            ],
+                            200);
+                    } 
+                } 
+            }
+        //om användaren anger ett ID som inte finns så får de upp följande felmeddelande
+        }if($include !== $user["id_of_company"]) {
+            send([
+                "code" => 4,
+                "Message" => "ID does not exist"],
+                404
+            );
+            exit();
         }
     }
 
