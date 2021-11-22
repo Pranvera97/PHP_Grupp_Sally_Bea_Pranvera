@@ -56,11 +56,11 @@ if ($method === "DELETE") {
     // Kollar hur lång vår user array är
     $length = count($users);
 
-    // Loopar igenom alla users som jobbar där
+    // Loopar igenom alla users
     for ($x = 0; $x <= $length; $x++) {
      foreach ($users as $index => $user) {
         if($user["id_of_company"] == $id) {
-            //Raderar bort dem
+            //Raderar bort dem som jobbar där
             array_splice($users, $index, 1);
              break;
             } 
