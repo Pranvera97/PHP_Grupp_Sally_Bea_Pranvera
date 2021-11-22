@@ -6,18 +6,7 @@ $companies = loadJson("../companies/companies.json");
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 
-//Kvar att göra: 
-
-// 1. Kunna begränsa antal entiteter vi hämtar med parametern limit=n. Denna parametern ska kunna kombineras med andra parametrar. 
-
-// 2. Kunna inkludera relaterade entiteter med parametern include=1, t.ex. om jag haft en hund i form av { name: "Arya", owner: 1 } (där 1 är ett ID) - med denna parametern skulle vi då inkludera relationen så här { name: "Arya", owner: { name: "Sebbe" }}. Denna  av 24
-// Databasbaserad publiceringHT21parameter ska kunna kombineras med andra parametrar. Det är ok om detta bara fungerar för er ena entitet.
-
-
 if ($requestMethod == "GET") {
-
-    //Get all users
-    // send($users);
 
     // Get user by first_name
     if (isset($_GET["first_name"])) {
@@ -101,12 +90,48 @@ if ($requestMethod == "GET") {
         send($arrayOfUsers);
     }
 
-    // Get an limit of users (Cannot combine with other parameters)
+    // Get an limit of users (not combine with other parameters)
     if (isset($_GET["limit"])) {
         $returnUsers = array_slice($users, 0, $_GET["limit"]);
         send($returnUsers);
     }
 
+    if (isset($GET["include"])) {
+        $includeArray = [];
+
+        foreach ($users as $key =>  $user) {
+            if (in_array($user["id"], $_GET["include"])) {
+
+                foreach ($companies as $k => $company) {
+                    $includeArray[] = $users[$key];
+                }
+        
+            }
+        }
+        send($includeArray);
+
+    }
+
+
+    if (isset($_GET["include"])) {
+        
+            foreach ($companies as $company) {
+                foreach ($users as $user) {
+                   if ($user["id_of_company"] == $company["id"]) {
+                       
+                        $user["id_of_company"] = $company["company_name"];
+                        send($user);
+                    } 
+                    
+                }
+                
+            }
+            
+    }
     
+    
+} else {
+    //Get all users
+    send($users);
 }
 ?>

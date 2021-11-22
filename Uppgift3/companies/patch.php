@@ -12,6 +12,13 @@ $method = $_SERVER["REQUEST_METHOD"];
 $data = file_get_contents("php://input");
 $requestData = json_decode($data, true);
 
+if ($method != "PATCH") {
+    send(
+        ["message" => "Method not allowed. Only 'PATCH' works."],
+        405
+    );
+}
+
 if ($method === "PATCH") {
     // Kontrollera att vi har den datan vi behöver
     if (!isset($requestData["id"])) {
