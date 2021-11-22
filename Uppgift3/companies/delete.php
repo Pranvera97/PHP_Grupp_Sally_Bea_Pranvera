@@ -25,6 +25,14 @@ if ($contentType !== "application/json") {
     );
 }
 
+// Om det inte är DELETE
+if ($requestMethod != "DELETE") {
+    send(
+        ["message" => "Method not allowed. Only 'DELETE' works."],
+        405
+    );
+}
+
 // Tar emot { id } och sedan raderar ett företag baserat på id
 if ($method === "DELETE") {
 
