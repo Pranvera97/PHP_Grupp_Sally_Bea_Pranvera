@@ -1,6 +1,7 @@
 <?php
 require_once "../functions.php";
 $companies = loadJson("companies.json");
+$employees = loadJson("../users/users.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
@@ -19,6 +20,20 @@ if ($requestMethod != "GET") {
 }
 
 if ($requestMethod == "GET") {
+    // 'limit' tillsammans med parametern 'country'.
+    if (isset($_GET["limit"], $_GET["country"])) {
+        $arrayOfObj = [];
+
+        foreach ($companies as $index => $company) {
+            if ($company["country"] == $_GET["country"]) {
+                array_push($arrayOfObj, $company);
+            }  
+        }
+
+        $limitedEntities = array_slice($arrayOfObj, 0, $_GET["limit"]);
+
+        send($limitedEntities);
+    }
 
     // Get company by company_name
     if (isset($_GET["company_name"])) {
@@ -61,10 +76,6 @@ if ($requestMethod == "GET") {
             if ($company["country"] == $_GET["country"]) {
                 array_push($companyByCountry, $company);
             }
-            
-            if (isset($_GET["limit"])) {
-                array_slice($companyByCountry, 0, $_GET["limit"]);
-            }
         }
         
         send($companyByCountry);
@@ -72,8 +83,9 @@ if ($requestMethod == "GET") {
 
     // Get an limit of users (not combined with other parameters)
     if (isset($_GET["limit"])) {
-        $returnCompanies = array_slice($companies, 0, $_GET["limit"]);
-        send($returnCompanies);
+        $limitedCompanies = array_slice($companies, 0, $_GET["limit"]);
+
+        send($limitedCompanies);
     }
 
     //Get all companies
