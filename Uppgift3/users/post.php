@@ -1,14 +1,6 @@
 <?php
 require_once "../functions.php";
-/*
-$companyData = loadJson("companies.json"); 
-foreach($companyData as $index => $company) {
-    $array = $company["employees"]; 
-    array_push($array, 5);
-    echo "<pre>";
-    var_dump($array);
-    echo "</pre>";    
-} */
+
 // hämta metoden i servern.
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 // hämtar typ av innehåll från servern.
@@ -16,8 +8,15 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 
 if ($contentType !== "application/json") {
     send(
-        ["message" => "Bad request."],
+        ["message" => "Bad request. You're missing 'Content-Type'."],
         400
+    );
+}
+
+if ($requestMethod !== "POST") {
+    send(
+        ["message" => "Method not allowed. You can only use 'POST'."],
+        405
     );
 }
 
@@ -38,7 +37,7 @@ if ($requestMethod === "POST") {
     // kollar om dessa nycklar är med.
     if (!isset($firstName, $lastName, $gender, $jobDepartment, $companyID)) {
         send(
-            ["message" => "Bad request. There are missing keys."],
+            ["message" => "Bad request. There is one or more keys missing."],
             400
         );
     }
@@ -51,17 +50,26 @@ if ($requestMethod === "POST") {
         );
     }
 
-    // kollar om id:et är rätt. Nu funkar inte den med 30 bruuuuuh
-    if (!$companyID > 0 && !$companyID <= 30) {
+    if (strlen($firstName) < 3 || strlen($lastName) < 3) {
         send(
-            ["The 'id' for company can only be between 1-30."],
+            ["message" => "Either 'firts_name' or 'last_name' has less than 3 letters."],
+            400
+        );
+    }
+
+    // kollar om id:et är en siffra.
+    if (!is_numeric($companyID)) {
+        send(
+            ["message" => "The 'id' can only be a number."],
             400
         );
     }
 
     // dessa är associative array av datan från filerna.
     $userData = loadJson("users.json"); 
-    //$companyData = loadJson("companies.json"); 
+    $companyData = loadJson("../companies/companies.json"); 
+    // får en array av alla företags id.
+    $allCompaniesID = array_column($companyData, "id");
     
     $highestID = 0;
 
@@ -80,22 +88,20 @@ if ($requestMethod === "POST") {
         "job_department" => $jobDepartment,
         "id_of_company" => $companyID
     ];
-    
+
+    // kollar om idet finns i companies.json, annars ett felmeddelande.
+    if (!in_array($companyID, $allCompaniesID)) {
+        send(
+            ["message" => "The company doesn't exist. Please try again."],
+            404
+        );
+    }
+
     // lägga till användaren till users.json
     array_push($userData, $newUser);
-    
-    // lägga till användaren under företagets 'emplyoees'.
-    /*
-    foreach ($companyData as $index => $company) {
-        if ($companyID == $company["id"]) {
-            $array = $company["employees"];
-            array_push($array, $newUser["id"]);
-        }
-    } */
 
     // spara vårt innehåll
     saveJson("users.json", $userData);
-    //saveJson("companies.json", $companyData);
     send($newUser, 201);
 } 
 ?>
