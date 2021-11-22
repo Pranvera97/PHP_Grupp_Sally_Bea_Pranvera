@@ -5,7 +5,6 @@ $employees = loadJson("../users/users.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-
 if ($requestMethod != "GET") {
     send(
         ["message" => "Method not allowed. Only 'GET' works."],

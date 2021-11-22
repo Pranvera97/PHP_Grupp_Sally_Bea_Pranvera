@@ -5,8 +5,65 @@ $companies = loadJson("../companies/companies.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
+if ($requestMethod != "GET") {
+    send(
+        ["message" => "Method not allowed. Only 'GET' works."],
+        405
+    );
+}
 
 if ($requestMethod == "GET") {
+    // skapa varibler
+    $firstName = $_GET["first_name"];
+    $lastName = $_GET["last_name"];
+    $gender = $_GET["gender"];
+    $jobDep = $_GET["job_department"];
+    $companyId = $_GET["id_of_company"];
+    $limit = $_GET["limit"];
+
+    // 'limit' tillsammans med andra parametrar.
+    if (isset($limit)) {
+        $newArray = [];
+        
+        // Gender
+        if (isset($gender)) {
+            foreach ($users as $index => $user) {
+                if ($user["gender"] == $gender) {
+                array_push($newArray, $user);
+                }  
+            }
+
+            $limitedUsers = array_slice($newArray, 0, $limit);
+            send($limitedUsers);                
+        }
+        
+        // Job department
+        if (isset($jobDep)) {
+            foreach ($users as $index => $user) {
+                if ($user["job_department"] == $jobDep) {
+                array_push($newArray, $user);
+                }  
+            }
+
+            $limitedUsers = array_slice($newArray, 0, $limit);
+            send($limitedUsers);                
+        }
+
+        // Company ID
+        if (isset($companyId)) {
+            foreach ($users as $index => $user) {
+                if ($user["id_of_company"] == $companyId) {
+                array_push($newArray, $user);
+                }  
+            }
+
+            $limitedUsers = array_slice($newArray, 0, $limit);
+            send($limitedUsers);                
+        }
+
+        $returnUsers = array_slice($users, 0, $limit);
+        send($returnUsers);
+    }
 
     // Get user by first_name
     if (isset($_GET["first_name"])) {
@@ -90,47 +147,6 @@ if ($requestMethod == "GET") {
         send($arrayOfUsers);
     }
 
-    // Get an limit of users (not combine with other parameters)
-    if (isset($_GET["limit"])) {
-        $returnUsers = array_slice($users, 0, $_GET["limit"]);
-        send($returnUsers);
-    }
-
-    if (isset($GET["include"])) {
-        $includeArray = [];
-
-        foreach ($users as $key =>  $user) {
-            if (in_array($user["id"], $_GET["include"])) {
-
-                foreach ($companies as $k => $company) {
-                    $includeArray[] = $users[$key];
-                }
-        
-            }
-        }
-        send($includeArray);
-
-    }
-
-
-    if (isset($_GET["include"])) {
-        
-            foreach ($companies as $company) {
-                foreach ($users as $user) {
-                   if ($user["id_of_company"] == $company["id"]) {
-                       
-                        $user["id_of_company"] = $company["company_name"];
-                        send($user);
-                    } 
-                    
-                }
-                
-            }
-            
-    }
-    
-    
-} else {
     //Get all users
     send($users);
 }

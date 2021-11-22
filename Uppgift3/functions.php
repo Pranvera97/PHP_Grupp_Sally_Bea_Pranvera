@@ -20,6 +20,4 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
-
-
 ?>
