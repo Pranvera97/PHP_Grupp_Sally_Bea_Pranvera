@@ -23,7 +23,6 @@ if ($contentType !== "application/json") {
 }
 
 // Tar emot { id } och sedan raderar en användare baserat på id
-// Skickar tillbaka { id }
 if ($method === "DELETE") {
 
     // Kontrollera att vi har den datan vi behöver
@@ -38,7 +37,6 @@ if ($method === "DELETE") {
     }
 
     // Kontrollera att id är en siffra
-
     $id = $requestData["id"];
     $found = false;
 
@@ -48,8 +46,8 @@ if ($method === "DELETE") {
         $found = true;
         array_splice($users, $index, 1);
         break;
+        }
     }
-}
 
     // Om id inte existerar
     if ($found === false) {

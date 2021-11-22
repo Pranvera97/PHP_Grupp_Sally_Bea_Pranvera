@@ -1,351 +1,402 @@
-[{
-    "id": 1,
-    "first_name": "Heinrick",
-    "last_name": "Willshaw",
-    "gender": "Female",
-    "job_department": "Accounting",
-    "id_of_company": 1
-  }, {
-    "id": 2,
-    "first_name": "Tessi",
-    "last_name": "Krauss",
-    "gender": "Genderqueer",
-    "job_department": "Research and Development",
-    "id_of_company": 2
-  }, {
-    "id": 3,
-    "first_name": "Jane",
-    "last_name": "Stiling",
-    "gender": "Agender",
-    "job_department": "Services",
-    "id_of_company": 3
-  }, {
-    "id": 4,
-    "first_name": "Ninetta",
-    "last_name": "Di Meo",
-    "gender": "Genderqueer",
-    "job_department": "Legal",
-    "id_of_company": 4
-  }, {
-    "id": 5,
-    "first_name": "Karole",
-    "last_name": "Pinock",
-    "gender": "Genderqueer",
-    "job_department": "Sales",
-    "id_of_company": 5
-  }, {
-    "id": 6,
-    "first_name": "Joell",
-    "last_name": "Board",
-    "gender": "Bigender",
-    "job_department": "Sales",
-    "id_of_company": 6
-  }, {
-    "id": 7,
-    "first_name": "Elysia",
-    "last_name": "Mc Grath",
-    "gender": "Male",
-    "job_department": "Product Management",
-    "id_of_company": 7
-  }, {
-    "id": 8,
-    "first_name": "Greggory",
-    "last_name": "Leedal",
-    "gender": "Female",
-    "job_department": "Human Resources",
-    "id_of_company": 8
-  }, {
-    "id": 9,
-    "first_name": "Hope",
-    "last_name": "Costerd",
-    "gender": "Agender",
-    "job_department": "Engineering",
-    "id_of_company": 9
-  }, {
-    "id": 10,
-    "first_name": "Marietta",
-    "last_name": "Boise",
-    "gender": "Male",
-    "job_department": "Marketing",
-    "id_of_company": 10
-  }, {
-    "id": 11,
-    "first_name": "Gothart",
-    "last_name": "Eassom",
-    "gender": "Genderqueer",
-    "job_department": "Legal",
-    "id_of_company": 11
-  }, {
-    "id": 12,
-    "first_name": "Andrey",
-    "last_name": "Osboldstone",
-    "gender": "Bigender",
-    "job_department": "Business Development",
-    "id_of_company": 12
-  }, {
-    "id": 13,
-    "first_name": "Cacilia",
-    "last_name": "Cleyne",
-    "gender": "Agender",
-    "job_department": "Marketing",
-    "id_of_company": 13
-  }, {
-    "id": 14,
-    "first_name": "Todd",
-    "last_name": "Perillo",
-    "gender": "Genderqueer",
-    "job_department": "Support",
-    "id_of_company": 14
-  }, {
-    "id": 15,
-    "first_name": "Kristoforo",
-    "last_name": "Bottlestone",
-    "gender": "Male",
-    "job_department": "Marketing",
-    "id_of_company": 15
-  }, {
-    "id": 16,
-    "first_name": "Ricki",
-    "last_name": "Fairlaw",
-    "gender": "Polygender",
-    "job_department": "Support",
-    "id_of_company": 16
-  }, {
-    "id": 17,
-    "first_name": "Krystle",
-    "last_name": "Adamini",
-    "gender": "Female",
-    "job_department": "Sales",
-    "id_of_company": 17
-  }, {
-    "id": 18,
-    "first_name": "Heath",
-    "last_name": "Gillespie",
-    "gender": "Female",
-    "job_department": "Legal",
-    "id_of_company": 18
-  }, {
-    "id": 19,
-    "first_name": "Carling",
-    "last_name": "Gary",
-    "gender": "Non-binary",
-    "job_department": "Marketing",
-    "id_of_company": 19
-  }, {
-    "id": 20,
-    "first_name": "Leoline",
-    "last_name": "Sellars",
-    "gender": "Agender",
-    "job_department": "Sales",
-    "id_of_company": 20
-  }, {
-    "id": 21,
-    "first_name": "Augusto",
-    "last_name": "Durgan",
-    "gender": "Agender",
-    "job_department": "Marketing",
-    "id_of_company": 21
-  }, {
-    "id": 22,
-    "first_name": "Zaria",
-    "last_name": "Blackader",
-    "gender": "Female",
-    "job_department": "Product Management",
-    "id_of_company": 22
-  }, {
-    "id": 23,
-    "first_name": "Leisha",
-    "last_name": "Worters",
-    "gender": "Genderfluid",
-    "job_department": "Support",
-    "id_of_company": 23
-  }, {
-    "id": 24,
-    "first_name": "Austina",
-    "last_name": "Gawkes",
-    "gender": "Genderfluid",
-    "job_department": "Support",
-    "id_of_company": 24
-  }, {
-    "id": 25,
-    "first_name": "Audrie",
-    "last_name": "Donoghue",
-    "gender": "Bigender",
-    "job_department": "Business Development",
-    "id_of_company": 25
-  }, {
-    "id": 26,
-    "first_name": "Hamilton",
-    "last_name": "Delicate",
-    "gender": "Polygender",
-    "job_department": "Marketing",
-    "id_of_company": 26
-  }, {
-    "id": 27,
-    "first_name": "Artair",
-    "last_name": "Decort",
-    "gender": "Female",
-    "job_department": "Sales",
-    "id_of_company": 27
-  }, {
-    "id": 28,
-    "first_name": "Edgar",
-    "last_name": "Lashmore",
-    "gender": "Non-binary",
-    "job_department": "Business Development",
-    "id_of_company": 28
-  }, {
-    "id": 29,
-    "first_name": "Adeline",
-    "last_name": "Wurst",
-    "gender": "Genderqueer",
-    "job_department": "Engineering",
-    "id_of_company": 29
-  }, {
-    "id": 30,
-    "first_name": "Lorettalorna",
-    "last_name": "Edbrooke",
-    "gender": "Bigender",
-    "job_department": "Business Development",
-    "id_of_company": 30
-  }, {
-    "id": 31,
-    "first_name": "Abbey",
-    "last_name": "Rotherforth",
-    "gender": "Agender",
-    "job_department": "Product Management",
-    "id_of_company": 1
-  }, {
-    "id": 32,
-    "first_name": "Daloris",
-    "last_name": "Aucoate",
-    "gender": "Genderfluid",
-    "job_department": "Marketing",
-    "id_of_company": 2
-  }, {
-    "id": 33,
-    "first_name": "Addison",
-    "last_name": "Portigall",
-    "gender": "Polygender",
-    "job_department": "Product Management",
-    "id_of_company": 3
-  }, {
-    "id": 34,
-    "first_name": "Esta",
-    "last_name": "Vasenkov",
-    "gender": "Agender",
-    "job_department": "Sales",
-    "id_of_company": 4
-  }, {
-    "id": 35,
-    "first_name": "Quintina",
-    "last_name": "Epsley",
-    "gender": "Polygender",
-    "job_department": "Legal",
-    "id_of_company": 5
-  }, {
-    "id": 36,
-    "first_name": "Arlen",
-    "last_name": "Prys",
-    "gender": "Agender",
-    "job_department": "Support",
-    "id_of_company": 6
-  }, {
-    "id": 37,
-    "first_name": "Patrizio",
-    "last_name": "Wagge",
-    "gender": "Genderfluid",
-    "job_department": "Product Management",
-    "id_of_company": 7
-  }, {
-    "id": 38,
-    "first_name": "Sabine",
-    "last_name": "Sigsworth",
-    "gender": "Agender",
-    "job_department": "Training",
-    "id_of_company": 8
-  }, {
-    "id": 39,
-    "first_name": "Tamera",
-    "last_name": "Adrien",
-    "gender": "Female",
-    "job_department": "Accounting",
-    "id_of_company": 9
-  }, {
-    "id": 40,
-    "first_name": "Kettie",
-    "last_name": "Sarah",
-    "gender": "Bigender",
-    "job_department": "Engineering",
-    "id_of_company": 10
-  }, {
-    "id": 41,
-    "first_name": "Tremain",
-    "last_name": "De Bernardi",
-    "gender": "Female",
-    "job_department": "Accounting",
-    "id_of_company": 11
-  }, {
-    "id": 42,
-    "first_name": "Frederick",
-    "last_name": "Beet",
-    "gender": "Polygender",
-    "job_department": "Services",
-    "id_of_company": 12
-  }, {
-    "id": 43,
-    "first_name": "Lyndy",
-    "last_name": "Casbolt",
-    "gender": "Male",
-    "job_department": "Services",
-    "id_of_company": 13
-  }, {
-    "id": 44,
-    "first_name": "Mack",
-    "last_name": "Sizzey",
-    "gender": "Genderqueer",
-    "job_department": "Services",
-    "id_of_company": 14
-  }, {
-    "id": 45,
-    "first_name": "Alair",
-    "last_name": "MacNeilage",
-    "gender": "Agender",
-    "job_department": "Sales",
-    "id_of_company": 15
-  }, {
-    "id": 46,
-    "first_name": "Ofelia",
-    "last_name": "Plaschke",
-    "gender": "Genderfluid",
-    "job_department": "Research and Development",
-    "id_of_company": 16
-  }, {
-    "id": 47,
-    "first_name": "Bird",
-    "last_name": "McPhee",
-    "gender": "Genderfluid",
-    "job_department": "Training",
-    "id_of_company": 17
-  }, {
-    "id": 48,
-    "first_name": "Elbert",
-    "last_name": "Stedmond",
-    "gender": "Agender",
-    "job_department": "Human Resources",
-    "id_of_company": 18
-  }, {
-    "id": 49,
-    "first_name": "Dean",
-    "last_name": "Smitheman",
-    "gender": "Bigender",
-    "job_department": "Research and Development",
-    "id_of_company": 19
-  }, {
-    "id": 50,
-    "first_name": "Franz",
-    "last_name": "Garbutt",
-    "gender": "Male",
-    "job_department": "Training",
-    "id_of_company": 20
-  }]
+[
+    {
+        "id": 1,
+        "first_name": "Heinrick",
+        "last_name": "Willshaw",
+        "gender": "Female",
+        "job_department": "Accounting",
+        "id_of_company": 1
+    },
+    {
+        "id": 2,
+        "first_name": "Tessi",
+        "last_name": "Krauss",
+        "gender": "Genderqueer",
+        "job_department": "Research and Development",
+        "id_of_company": 2
+    },
+    {
+        "id": 3,
+        "first_name": "Jane",
+        "last_name": "Stiling",
+        "gender": "Agender",
+        "job_department": "Services",
+        "id_of_company": 3
+    },
+    {
+        "id": 4,
+        "first_name": "Ninetta",
+        "last_name": "Di Meo",
+        "gender": "Genderqueer",
+        "job_department": "Legal",
+        "id_of_company": 4
+    },
+    {
+        "id": 5,
+        "first_name": "Karole",
+        "last_name": "Pinock",
+        "gender": "Genderqueer",
+        "job_department": "Sales",
+        "id_of_company": 5
+    },
+    {
+        "id": 6,
+        "first_name": "Joell",
+        "last_name": "Board",
+        "gender": "Bigender",
+        "job_department": "Sales",
+        "id_of_company": 6
+    },
+    {
+        "id": 7,
+        "first_name": "Elysia",
+        "last_name": "Mc Grath",
+        "gender": "Male",
+        "job_department": "Product Management",
+        "id_of_company": 7
+    },
+    {
+        "id": 8,
+        "first_name": "Greggory",
+        "last_name": "Leedal",
+        "gender": "Female",
+        "job_department": "Human Resources",
+        "id_of_company": 8
+    },
+    {
+        "id": 9,
+        "first_name": "Hope",
+        "last_name": "Costerd",
+        "gender": "Agender",
+        "job_department": "Engineering",
+        "id_of_company": 9
+    },
+    {
+        "id": 10,
+        "first_name": "Marietta",
+        "last_name": "Boise",
+        "gender": "Male",
+        "job_department": "Marketing",
+        "id_of_company": 10
+    },
+    {
+        "id": 11,
+        "first_name": "Gothart",
+        "last_name": "Eassom",
+        "gender": "Genderqueer",
+        "job_department": "Legal",
+        "id_of_company": 11
+    },
+    {
+        "id": 12,
+        "first_name": "Andrey",
+        "last_name": "Osboldstone",
+        "gender": "Bigender",
+        "job_department": "Business Development",
+        "id_of_company": 12
+    },
+    {
+        "id": 13,
+        "first_name": "Cacilia",
+        "last_name": "Cleyne",
+        "gender": "Agender",
+        "job_department": "Marketing",
+        "id_of_company": 13
+    },
+    {
+        "id": 14,
+        "first_name": "Todd",
+        "last_name": "Perillo",
+        "gender": "Genderqueer",
+        "job_department": "Support",
+        "id_of_company": 14
+    },
+    {
+        "id": 15,
+        "first_name": "Kristoforo",
+        "last_name": "Bottlestone",
+        "gender": "Male",
+        "job_department": "Marketing",
+        "id_of_company": 15
+    },
+    {
+        "id": 16,
+        "first_name": "Ricki",
+        "last_name": "Fairlaw",
+        "gender": "Polygender",
+        "job_department": "Support",
+        "id_of_company": 16
+    },
+    {
+        "id": 17,
+        "first_name": "Krystle",
+        "last_name": "Adamini",
+        "gender": "Female",
+        "job_department": "Sales",
+        "id_of_company": 17
+    },
+    {
+        "id": 18,
+        "first_name": "Heath",
+        "last_name": "Gillespie",
+        "gender": "Female",
+        "job_department": "Legal",
+        "id_of_company": 18
+    },
+    {
+        "id": 19,
+        "first_name": "Carling",
+        "last_name": "Gary",
+        "gender": "Non-binary",
+        "job_department": "Marketing",
+        "id_of_company": 19
+    },
+    {
+        "id": 20,
+        "first_name": "Leoline",
+        "last_name": "Sellars",
+        "gender": "Agender",
+        "job_department": "Sales",
+        "id_of_company": 20
+    },
+    {
+        "id": 21,
+        "first_name": "Augusto",
+        "last_name": "Durgan",
+        "gender": "Agender",
+        "job_department": "Marketing",
+        "id_of_company": 21
+    },
+    {
+        "id": 22,
+        "first_name": "Zaria",
+        "last_name": "Blackader",
+        "gender": "Female",
+        "job_department": "Product Management",
+        "id_of_company": 22
+    },
+    {
+        "id": 23,
+        "first_name": "Leisha",
+        "last_name": "Worters",
+        "gender": "Genderfluid",
+        "job_department": "Support",
+        "id_of_company": 23
+    },
+    {
+        "id": 24,
+        "first_name": "Austina",
+        "last_name": "Gawkes",
+        "gender": "Genderfluid",
+        "job_department": "Support",
+        "id_of_company": 24
+    },
+    {
+        "id": 25,
+        "first_name": "Audrie",
+        "last_name": "Donoghue",
+        "gender": "Bigender",
+        "job_department": "Business Development",
+        "id_of_company": 25
+    },
+    {
+        "id": 26,
+        "first_name": "Hamilton",
+        "last_name": "Delicate",
+        "gender": "Polygender",
+        "job_department": "Marketing",
+        "id_of_company": 26
+    },
+    {
+        "id": 27,
+        "first_name": "Artair",
+        "last_name": "Decort",
+        "gender": "Female",
+        "job_department": "Sales",
+        "id_of_company": 27
+    },
+    {
+        "id": 28,
+        "first_name": "Edgar",
+        "last_name": "Lashmore",
+        "gender": "Non-binary",
+        "job_department": "Business Development",
+        "id_of_company": 28
+    },
+    {
+        "id": 29,
+        "first_name": "Adeline",
+        "last_name": "Wurst",
+        "gender": "Genderqueer",
+        "job_department": "Engineering",
+        "id_of_company": 29
+    },
+    {
+        "id": 30,
+        "first_name": "Lorettalorna",
+        "last_name": "Edbrooke",
+        "gender": "Bigender",
+        "job_department": "Business Development",
+        "id_of_company": 30
+    },
+    {
+        "id": 31,
+        "first_name": "Abbey",
+        "last_name": "Rotherforth",
+        "gender": "Agender",
+        "job_department": "Product Management",
+        "id_of_company": 1
+    },
+    {
+        "id": 32,
+        "first_name": "Daloris",
+        "last_name": "Aucoate",
+        "gender": "Genderfluid",
+        "job_department": "Marketing",
+        "id_of_company": 2
+    },
+    {
+        "id": 33,
+        "first_name": "Addison",
+        "last_name": "Portigall",
+        "gender": "Polygender",
+        "job_department": "Product Management",
+        "id_of_company": 3
+    },
+    {
+        "id": 34,
+        "first_name": "Esta",
+        "last_name": "Vasenkov",
+        "gender": "Agender",
+        "job_department": "Sales",
+        "id_of_company": 4
+    },
+    {
+        "id": 35,
+        "first_name": "Quintina",
+        "last_name": "Epsley",
+        "gender": "Polygender",
+        "job_department": "Legal",
+        "id_of_company": 5
+    },
+    {
+        "id": 36,
+        "first_name": "Arlen",
+        "last_name": "Prys",
+        "gender": "Agender",
+        "job_department": "Support",
+        "id_of_company": 6
+    },
+    {
+        "id": 37,
+        "first_name": "Patrizio",
+        "last_name": "Wagge",
+        "gender": "Genderfluid",
+        "job_department": "Product Management",
+        "id_of_company": 7
+    },
+    {
+        "id": 38,
+        "first_name": "Sabine",
+        "last_name": "Sigsworth",
+        "gender": "Agender",
+        "job_department": "Training",
+        "id_of_company": 8
+    },
+    {
+        "id": 39,
+        "first_name": "Tamera",
+        "last_name": "Adrien",
+        "gender": "Female",
+        "job_department": "Accounting",
+        "id_of_company": 9
+    },
+    {
+        "id": 40,
+        "first_name": "Kettie",
+        "last_name": "Sarah",
+        "gender": "Bigender",
+        "job_department": "Engineering",
+        "id_of_company": 10
+    },
+    {
+        "id": 41,
+        "first_name": "Tremain",
+        "last_name": "De Bernardi",
+        "gender": "Female",
+        "job_department": "Accounting",
+        "id_of_company": 11
+    },
+    {
+        "id": 42,
+        "first_name": "Frederick",
+        "last_name": "Beet",
+        "gender": "Polygender",
+        "job_department": "Services",
+        "id_of_company": 12
+    },
+    {
+        "id": 43,
+        "first_name": "Lyndy",
+        "last_name": "Casbolt",
+        "gender": "Male",
+        "job_department": "Services",
+        "id_of_company": 13
+    },
+    {
+        "id": 44,
+        "first_name": "Mack",
+        "last_name": "Sizzey",
+        "gender": "Genderqueer",
+        "job_department": "Services",
+        "id_of_company": 14
+    },
+    {
+        "id": 45,
+        "first_name": "Alair",
+        "last_name": "MacNeilage",
+        "gender": "Agender",
+        "job_department": "Sales",
+        "id_of_company": 15
+    },
+    {
+        "id": 46,
+        "first_name": "Ofelia",
+        "last_name": "Plaschke",
+        "gender": "Genderfluid",
+        "job_department": "Research and Development",
+        "id_of_company": 16
+    },
+    {
+        "id": 47,
+        "first_name": "Bird",
+        "last_name": "McPhee",
+        "gender": "Genderfluid",
+        "job_department": "Training",
+        "id_of_company": 17
+    },
+    {
+        "id": 48,
+        "first_name": "Elbert",
+        "last_name": "Stedmond",
+        "gender": "Agender",
+        "job_department": "Human Resources",
+        "id_of_company": 18
+    },
+    {
+        "id": 49,
+        "first_name": "Dean",
+        "last_name": "Smitheman",
+        "gender": "Bigender",
+        "job_department": "Research and Development",
+        "id_of_company": 19
+    },
+    {
+        "id": 50,
+        "first_name": "Franz",
+        "last_name": "Garbutt",
+        "gender": "Male",
+        "job_department": "Training",
+        "id_of_company": 20
+    }
+]

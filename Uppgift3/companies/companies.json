@@ -201,12 +201,5 @@
         "country": "Panama",
         "address": "349 Kedzie Circle",
         "phone_number": "261-122-3536"
-    },
-    {
-        "id": 30,
-        "company_name": "Kayveo",
-        "country": "Indonesia",
-        "address": "0 Golf View Hill",
-        "phone_number": "580-866-6231"
     }
 ]

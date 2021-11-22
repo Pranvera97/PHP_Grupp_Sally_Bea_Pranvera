@@ -25,7 +25,8 @@ if ($contentType !== "application/json") {
     );
 }
 
-// Tar emot { id } och sedan raderar ett företag baserat på id
+// Tar emot { id } och sedan raderar en användare baserat på id
+// Skickar tillbaka { id }
 if ($method === "DELETE") {
 
     // Kontrollera att vi har den datan vi behöver
@@ -40,32 +41,40 @@ if ($method === "DELETE") {
     }
 
     // Kontrollera att id är en siffra
+
     $id = $requestData["id"];
     $found = false;
-    $foundEmployee = null;
 
    // Om id existerar
    foreach ($companies as $index => $company) {
-   if ($company["id"] == $id) { 
-       $found = true;
-       array_splice($companies, $index, 1);
-       break;
-       }
-    }
+    if ($company["id"] == $id) {
+        
+        $found = true;
+        array_splice($companies, $index, 1);
+        // break;
 
-    // Kollar hur lång vår user array är
-    $length = count($users);
-
-    // Loopar igenom alla users som jobbar där
-    for ($x = 0; $x <= $length; $x++) {
-     foreach ($users as $index => $user) {
-        if($user["id_of_company"] == $id) {
-            //Raderar bort dem
-            array_splice($users, $index, 1);
-             break;
-            } 
-        }
+        foreach ($users as $index => $user) {
+            if($user["gender"] == "Bigender") {
+                send(
+                    [
+                        "code" => 20,
+                        "message" => "JAAAAA"
+                    ],
+                    200);
+                  } 
+                
+                  else {
+                    send(
+                        [
+                            "code" => 44,
+                            "message" => "nooooo"
+                        ],
+                        404
+                    );
+                }
+            }
     }
+}
 
     // Om id inte existerar
     if ($found === false) {
@@ -74,14 +83,18 @@ if ($method === "DELETE") {
                 "code" => 2,
                 "message" => "The users by `id` does not exist"
             ],
-            404);
-    }
+            404
+        );
+}
 
     // Uppdaterar filen
    $companyjson = "companies.json";
-   $userjson = "../users/users.json";
-   saveJson($userjson, $users);
-   saveJson($companyjson, $companies);
+    $userjson = "../users/users.json";
+   // Avmarkera för att testa på companies istället
+   //$userjson = $companyjson;
+    saveJson($userjson, $users);
+    saveJson($companyjson, $companies);
+    //send(["id" => $user]);
     send(
         ["You have deleted the following company" => $company],
         200
