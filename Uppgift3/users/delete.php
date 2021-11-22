@@ -5,10 +5,6 @@ error_reporting(-1);
 // Ladda in vår JSON data från vår fil, i detta fallet är det $users
 $users = loadJson("users.json");
 
-$companies = loadJson("../companies/companies.json");
-//Avmarkera om du vill testa på companies istället
-// $users = $companies;
-
 // Vilken HTTP metod vi tog emot
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -27,7 +23,6 @@ if ($contentType !== "application/json") {
 }
 
 // Tar emot { id } och sedan raderar en användare baserat på id
-// Skickar tillbaka { id }
 if ($method === "DELETE") {
 
     // Kontrollera att vi har den datan vi behöver
@@ -42,7 +37,6 @@ if ($method === "DELETE") {
     }
 
     // Kontrollera att id är en siffra
-
     $id = $requestData["id"];
     $found = false;
 
@@ -51,37 +45,9 @@ if ($method === "DELETE") {
     if ($user["id"] == $id) {
         $found = true;
         array_splice($users, $index, 1);
-
-        foreach ($companies as $index => $company) {
-            if(array_search($id, array_column($companies, 'employees')) !== FALSE) {
-                // unset($companies[array_search($id, $companies)]);
-                send(
-                    [
-                        "code" => 44,
-                        "message" => "hihihihiy"
-                    ],
-                    400
-                );
-                  } else {
-                    send(
-                        [
-                            "code" => 44,
-                            "message" => "hohoho"
-                        ],
-                        400
-                    );
-                }
-    
-        
-
-
-          
-        }
-
         break;
+        }
     }
-}
-
 
     // Om id inte existerar
     if ($found === false) {
@@ -95,12 +61,11 @@ if ($method === "DELETE") {
     }
 
     // Uppdaterar filen
-   $companyjson = "../companies/companies.json";
     $userjson = "users.json";
-   // Avmarkera för att testa på companies istället
-   //$userjson = $companyjson;
     saveJson($userjson, $users);
-   saveJson($companyjson, $companies);
-    send(["id" => $companies]);
+    send(
+        ["You have deleted the following user" => $user],
+        200
+    );
 }
 ?>
